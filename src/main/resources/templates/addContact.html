@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Contact</title>
+</head>
+<body>
+<div layout:fragment="content" class="border border-gray-700 rounded-xl bg-gray-900 m-20">
+  <form method="post" th:action="@{saveContact}" class="m-8">
+
+    <div class="mb-6">
+      <label for="nom" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
+      <input type="text" name="nom" th:value="${contact.nom}" id="nom" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" >
+      <span th:errors="${contact.nom}" class="mt-2 text-sm text-red-600 dark:text-red-500 font-medium"></span>
+    </div>
+    <div class="mb-6">
+      <label for="prenom" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
+      <input type="text" name="prenom" th:value="${contact.prenom}" id="prenom" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" >
+      <span th:errors="${contact.prenom}" class="mt-2 text-sm text-red-600 dark:text-red-500 font-medium"></span>
+    </div>
+    <div class="mb-6">
+      <label for="telephone1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Professional number</label>
+      <input type="tel" th:value="${contact.telephone1}"  name="telephone1" id="telephone1" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" >
+      <span th:errors="${contact.telephone1}" class="mt-2 text-sm text-red-600 dark:text-red-500 font-medium"></span>
+    </div>
+    <div class="mb-6">
+      <label for="telephone2" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Personal number</label>
+      <input type="tel" name="telephone2" th:value="${contact.telephone2}" id="telephone2" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" >
+      <span th:errors="${contact.telephone2}" class="mt-2 text-sm text-red-600 dark:text-red-500 font-medium"></span>
+    </div>
+    <div class="mb-6">
+      <label for="adresse" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">address</label>
+      <input type="text" name="adresse" th:value="${contact.adresse}" id="adresse" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" >
+      <span th:errors="${contact.adresse}" class="mt-2 text-sm text-red-600 dark:text-red-500 font-medium"></span>
+    </div>
+    <div class="mb-6">
+       <label for="emailpro" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Professional email</label>
+       <input type="email" name="emailProfessionnel" th:value="${contact.emailProfessionnel}" id="emailpro" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" >
+       <span th:errors="${contact.emailProfessionnel}" class="mt-2 text-sm text-red-600 dark:text-red-500 font-medium"></span>
+    </div>
+    <div class="mb-6">
+      <label for="emailperso" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Personal email</label>
+      <input type="email" name="emailPersonnel" th:value="${contact.emailProfessionnel}" id="emailperso" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" >
+      <span th:errors="${contact.emailPersonnel}" class="mt-2 text-sm text-red-600 dark:text-red-500 font-medium"></span>
+    </div>
+      <div class="flex">
+        <div class="flex items-center mb-4">
+          <input id="male" name="genre" type="radio" value="true" th:checked="${contact.genre}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+          <label for="male" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Male (XY)</label>
+        </div>
+        <div class="flex ml-4 items-center">
+          <input id="female" name="genre" type="radio" value="false" th:checked="${!contact.genre}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+          <label for="female" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Female (XX)</label>
+        </div>
+       </div>
+
+
+
+    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register new contact</button>
+  </form>
+</div>
+<script src="https://cdn.tailwindcss.com"></script>
+
+</body>
+</html>
