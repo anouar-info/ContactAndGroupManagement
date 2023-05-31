@@ -51,9 +51,15 @@ public class ContactController {
         model.addAttribute("contact",contact);
         return "updateContact";
     }
+    @GetMapping("/updateGroup")
+    public String updateGroup(Model model,@RequestParam(name="groupId") Long id){
+        Group group =groupService.getGroupById(id);
+        model.addAttribute("group",group);
+        return "updateContact";
+    }
     @GetMapping("/deleteGroup")
     public String deleteGroup(@RequestParam(name="groupId") Long id){
-        groupService.deleteGroup(id);
+        groupService.deleteGroupAndUpdateContacts(id);
         return "redirect:/groups";
     }
     @GetMapping("/")
@@ -79,7 +85,7 @@ public class ContactController {
         return  "redirect:/contacts?search="+contact.getNom();
     }
     @PostMapping("/saveGroup")
-    public String saveGroup(@ModelAttribute Group group, @RequestParam(value = "contacts", required = false) List<Long> contactIds,BindingResult bindingResult) {
+    public String saveGroup(@Valid Group group, @RequestParam(value = "contacts", required = false) List<Long> contactIds,BindingResult bindingResult) {
         System.out.println("7na l'ids li selectiti \t "+contactIds);
         if(bindingResult.hasErrors()){
             return "addGroup";}
@@ -98,6 +104,10 @@ public class ContactController {
     @ModelAttribute("getContacts")
     public List<Contact> getContacts() {
         return contactService.getAllContacts("","");
+    }
+    @ModelAttribute("getContactsWithoutGroup")
+    public List<Contact> getContactsWithoutGroup() {
+        return contactService.getAllContactsWithoutGroup();
     }
 
 }

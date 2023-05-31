@@ -71,17 +71,17 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="c:${Groups}" class=" bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <tr th:each="c,groupStat:${Groups}" class=" bg-white border-b dark:bg-gray-800 dark:border-gray-700">
           <td th:text="${c[8]}" class="text-center px-6 py-4"></td>
-          <th th:text="${c[0]+' '+c[1]}" scope="row" class="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"></th>
+          <th th:text="${c[0]+' '+c[1]}"  scope="row" class="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"></th>
           <td th:text="${c[5]}" class="text-center px-6 py-4"></td>
           <td th:text="${c[6]}" class="text-center px-6 py-4"></td>
           <td th:text="${c[4]}" class="text-center px-6 py-4"></td>
           <td th:text="${c[2]}" class="text-center px-6 py-4"></td>
           <td th:text="${c[3]}" class="text-center px-6 py-4"></td>
           <td th:text="${c[7] ? 'Male' : 'Female' }" class="text-center px-6 py-4"></td>
-          <td class="text-center px-6 py-4"><a th:data-nom="${c[0]}" th:data-prenom="${c[1]}" th:attr="onclick='if (confirm(\'Do you really want to delete the contact \' + this.getAttribute(\'data-nom\') + \' \' + this.getAttribute(\'data-prenom\') + \'?\')) { alert(\'Contact deleted successfully!\'); return true; } else { return false; }'"  th:href="@{deleteContact(contactId=${c[9]})}" class=" font-bold text-red-600 dark:text-red-500 hover:underline">Delete</a></td>
-          <td class="text-center px-6 py-4"><a th:href="@{updateContact(contactId=${c[9]})}" class=" font-bold text-green-600 dark:text-green-500 hover:underline">Update</a></td>
+          <td class="text-center px-6 py-4"><a th:data-nom="${c[8]}"  th:attr="onclick='if (confirm(\'Do you really want to delete the group \' + this.getAttribute(\'data-nom\') + \' \' + \'?\')) { alert(\'Group deleted successfully!\'); return true; } else { return false; }'"  th:href="@{deleteGroup(groupId=${c[10]})}" class=" font-bold text-red-600 dark:text-red-500 hover:underline">Delete Group</a></td>
+          <td class="text-center px-6 py-4"><a th:href="@{updateGroup(groupId=${c[10]})}" class=" font-bold text-green-600 dark:text-green-500 hover:underline">Update</a></td>
         </tr>
         </tbody>
       </table>

@@ -7,6 +7,9 @@ import java.util.List;
 
 public interface GroupService {
     List<Group> getAllGroups(String name);
+    List<Group> getAllGroupsWithNoContacts();
+    Group getGroupById(Long id);
     void saveGroup(Group group);
-    void deleteGroup(Long id);
+
+    void deleteGroupAndUpdateContacts(Long groupId);
 }

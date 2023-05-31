@@ -7,6 +7,7 @@ import com.anouar.gestion_contact.repositories.GroupRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -20,12 +21,28 @@ public class GroupServiceImpl implements GroupService{
     }
 
     @Override
+    public List<Group> getAllGroupsWithNoContacts() {
+        return null;
+    }
+
+    @Override
+    public Group getGroupById(Long id) {
+        return groupRepository.findGroupsById(id);
+    }
+
+    @Override
     public void saveGroup(Group group) {
           groupRepository.save(group);
     }
 
-    @Override
-    public void deleteGroup(Long id) {
-          groupRepository.deleteById(id);
+
+
+    @Transactional
+    public void deleteGroupAndUpdateContacts(Long groupId) {
+        Group group = groupRepository.findById(groupId).orElse(null);
+        if (group != null) {
+            groupRepository.deleteGroupAndUpdateContacts(group);
+            groupRepository.delete(group);
+        }
     }
 }

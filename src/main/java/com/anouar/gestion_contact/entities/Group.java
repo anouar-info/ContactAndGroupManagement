@@ -14,7 +14,9 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "GROUPS")
+@Table(name = "GROUPS", uniqueConstraints = {
+        @UniqueConstraint(name = "uk_name", columnNames = {"name"})
+})
 @AllArgsConstructor @NoArgsConstructor @Data @ToString(exclude = "contacts")
 public class Group {
 
@@ -22,6 +24,7 @@ public class Group {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     @NotBlank(message="name is mandatory")
+    @Column(unique=true)
     private String name;
 
     @OneToMany(mappedBy="group")

@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 @Service
 @AllArgsConstructor
@@ -29,6 +31,11 @@ public class ContactServiceImpl implements ContactService{
     }
 
     @Override
+    public List<Contact> getAllContactsWithoutGroup() {
+        return contactRepository.findAllContactsWithoutGroup();
+    }
+
+    @Override
     public ArrayList<ArrayList<Object>> getAllContactsGroupedByGroup(List<Contact> contacts,String s) {
         ArrayList<ArrayList<Object>> contactsGrouped = new ArrayList<ArrayList<Object>>();
         for(int i=0;i<contacts.toArray().length;i++){
@@ -44,7 +51,9 @@ public class ContactServiceImpl implements ContactService{
             contact.add(contacts.get(i).isGenre());
             contact.add(contacts.get(i).getGroup().getName());
             contact.add(contacts.get(i).getId());
+            contact.add(contacts.get(i).getGroup().getId());
             contactsGrouped.add(contact);
+                contactsGrouped.sort(Comparator.comparing(o -> o.get(8).toString()));
         }}
         return contactsGrouped;
     }

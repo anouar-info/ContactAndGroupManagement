@@ -7,42 +7,42 @@
     <title>Add Contact</title>
 </head>
 <body>
-<div layout:fragment="content" class="border border-gray-700 rounded-xl bg-gray-900 m-20">
+<div layout:fragment="content" class="border border-gray-700 rounded-xl bg-gray-900 mx-96 my-24">
   <form method="post" th:action="@{saveContact}" class="m-8">
 
     <div class="mb-6">
       <label for="nom" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
-      <input type="text" name="nom" th:value="${contact.nom}" id="nom" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" >
+      <input type="text" name="nom" th:value="${contact.nom}" id="nom" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Your first name is ..." >
       <span th:errors="${contact.nom}" class="mt-2 text-sm text-red-600 dark:text-red-500 font-medium"></span>
     </div>
     <div class="mb-6">
       <label for="prenom" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
-      <input type="text" name="prenom" th:value="${contact.prenom}" id="prenom" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" >
+      <input type="text" name="prenom" th:value="${contact.prenom}" id="prenom" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Your last name is ..." >
       <span th:errors="${contact.prenom}" class="mt-2 text-sm text-red-600 dark:text-red-500 font-medium"></span>
     </div>
     <div class="mb-6">
       <label for="telephone1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Professional number</label>
-      <input type="tel" th:value="${contact.telephone1}"  name="telephone1" id="telephone1" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" >
+      <input type="tel" th:value="${contact.telephone1}"  name="telephone1" id="telephone1" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="06XXXXXXXX(05/07)" >
       <span th:errors="${contact.telephone1}" class="mt-2 text-sm text-red-600 dark:text-red-500 font-medium"></span>
     </div>
     <div class="mb-6">
       <label for="telephone2" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Personal number</label>
-      <input type="tel" name="telephone2" th:value="${contact.telephone2}" id="telephone2" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" >
+      <input type="tel" name="telephone2" th:value="${contact.telephone2}" id="telephone2" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="06XXXXXXXX(05/07)" >
       <span th:errors="${contact.telephone2}" class="mt-2 text-sm text-red-600 dark:text-red-500 font-medium"></span>
     </div>
     <div class="mb-6">
       <label for="adresse" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">address</label>
-      <input type="text" name="adresse" th:value="${contact.adresse}" id="adresse" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" >
+      <input type="text" name="adresse" th:value="${contact.adresse}" id="adresse" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="11 quartier guautier ...." >
       <span th:errors="${contact.adresse}" class="mt-2 text-sm text-red-600 dark:text-red-500 font-medium"></span>
     </div>
     <div class="mb-6">
        <label for="emailpro" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Professional email</label>
-       <input type="email" name="emailProfessionnel" th:value="${contact.emailProfessionnel}" id="emailpro" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" >
+       <input type="email" name="emailProfessionnel" th:value="${contact.emailProfessionnel}" id="emailpro" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Blabla@Blabla.Blabla" >
        <span th:errors="${contact.emailProfessionnel}" class="mt-2 text-sm text-red-600 dark:text-red-500 font-medium"></span>
     </div>
     <div class="mb-6">
       <label for="emailperso" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Personal email</label>
-      <input type="email" name="emailPersonnel" th:value="${contact.emailProfessionnel}" id="emailperso" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" >
+      <input type="email" name="emailPersonnel" th:value="${contact.emailProfessionnel}" id="emailperso" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Blabla@Blabla.Blabla" >
       <span th:errors="${contact.emailPersonnel}" class="mt-2 text-sm text-red-600 dark:text-red-500 font-medium"></span>
     </div>
       <div class="flex">
